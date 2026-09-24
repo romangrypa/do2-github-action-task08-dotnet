@@ -32,6 +32,8 @@ app.UseCors(opt => opt
 
 app.UseAuthorization();
 
+// map controllers
 app.MapControllers();
 
+// run
 app.Run();
