@@ -1,3 +1,5 @@
+[![CI Pipeline](https://github.com/romangrypa/do2-github-action-task08-dotnet/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/romangrypa/do2-github-action-task08-dotnet/actions/workflows/ci.yml)
+
 # Description
 This project is the .Net backend part of an educational  project. It provides connection to DB, implements CRUD operations and sends responses to requests. 
 
