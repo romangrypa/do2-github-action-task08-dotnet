@@ -1,0 +1,42 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and Run Tests on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clone the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      # Install .NET SDK
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "8.0.x"
+          cache: true
+
+      # Verify installed software
+      - name: Verify .NET
+        run: dotnet --info
+
+      # Download project dependencies
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      # Create project build
+      - name: Build Project
+        run: dotnet build --configuration Release --no-restore
+
+      # Run unit tests
+      - name: Run Unit Tests
+        run: dotnet test --configuration Release --no-build
